@@ -1,5 +1,9 @@
 // settings
 @import "settings/_settings-colors.scss";
+@import "settings/_settings-breakpoints.scss";
+
+// mixins
+@import "mixins/_mixins-breakpoints.scss";
 
 // base
 @import "base/_base-body.scss";

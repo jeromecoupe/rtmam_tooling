@@ -1,0 +1,27 @@
+// ==============================
+// =variables
+// ==============================
+$breakpoints-map: (
+  small: "all and (min-width: 500px)",
+  medium: "all and (min-width: 750px)",
+  large: "all and (min-width: 1000px)",
+  xlarge: "all and (min-width: 1200px)",
+) !default;
+
+// ==============================
+// =breakpoints mixin
+// ==============================
+@mixin mq($name) {
+  // if passed name is not a valid key, throw an error
+  @if not map-has-key($breakpoints-map, $name) {
+    @error "#{$name} is not a valid breakpoint name. Valid names are: #{map-keys($breakpoints-map)}";
+  }
+
+  // get the query correspoding to the name
+  $query: map-get($breakpoints-map, $name);
+
+  // write the media query and put the content in there
+  @media #{$query} {
+    @content;
+  }
+}
