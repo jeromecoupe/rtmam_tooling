@@ -12,9 +12,12 @@ What this thing does
 
   --color-gray1: #1b1b1b;
 
+  --color-green1: #55e155;
+
   // incident colors (used in CSS)
   --color-background: var(--color-white);
   --color-text: var(--color-gray1);
+  --color-brand-main: var(--color-green1);
 }
 
 @media (prefers-color-scheme: dark) {
