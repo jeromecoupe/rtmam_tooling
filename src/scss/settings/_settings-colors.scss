@@ -1,0 +1,26 @@
+// ==============================
+// =colors
+// ==============================
+
+/*
+What this thing does
+*/
+
+:root {
+  // base colors (never used in CSS)
+  --color-white: #ffffff;
+
+  --color-gray1: #1b1b1b;
+
+  // incident colors (used in CSS)
+  --color-background: var(--color-white);
+  --color-text: var(--color-gray1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // incident colors (used in CSS)
+    --color-background: var(--color-gray1);
+    --color-text: var(--color-white);
+  }
+}
