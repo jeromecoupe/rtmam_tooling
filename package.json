@@ -4,10 +4,13 @@
   "description": "Temporary repository for the tooling workshops at IAD in 2022.",
   "main": "index.js",
   "scripts": {
-    "server": "browser-sync start --server './' --files 'dist' '*.html'",
-    "styles:dev": "npx sass src/scss/main.scss:dist/css/main.css --embed-source-map --source-map-urls=absolute --watch",
+    "postinstall": "npm-run-all --parallel styles:dev",
+    "server": "browser-sync start --server \".\" --files \"dist\" \"*.html\"",
+    "styles:dev": "npx sass src/scss/main.scss:dist/css/main.css --embed-source-map --source-map-urls=absolute",
     "styles:prod": "npx sass src/scss/main.scss:dist/css/main.css --style=compressed --no-source-map",
-    "dev": "npm-run-all --parallel server styles:dev"
+    "watch:styles": "onchange \"./src/scss/**/*.scss\" -- npm styles:dev",
+    "dev": "npm-run-all --parallel server styles:dev",
+    "build": "npm-run-all --parallel styles:prod"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "browser-sync": "^2.27.10",
     "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
     "sass": "^1.56.1"
   }
 }
