@@ -6,11 +6,11 @@
   "scripts": {
     "postinstall": "npm-run-all --parallel styles:dev",
     "clean": "rimraf \"dist\"",
-    "server": "browser-sync start --server \".\" --files \"dist\" \"*.html\"",
+    "server": "browser-sync start --server \".\" --files \"dist\" \"*.html\" --no-open",
     "styles:dev": "npx sass src/scss/main.scss:dist/css/main.css --embed-source-map --source-map-urls=absolute",
     "styles:prod": "npx sass src/scss/main.scss:dist/css/main.css --style=compressed --no-source-map",
-    "watch:styles": "onchange \"./src/scss/**/*.scss\" -- npm styles:dev",
-    "dev": "npm-run-all --parallel server styles:dev",
+    "watch:styles": "onchange \"./src/scss/**/*\" -- npm run styles:dev",
+    "dev": "npm-run-all --parallel server watch:styles",
     "build": "npm-run-all clean --parallel styles:prod"
   },
   "repository": {
