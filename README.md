@@ -11,5 +11,5 @@ Temporary repository for the tooling workshops at IAD in 2022.
 
 1. install Node and NPM
 2. Install dependencies `npm i`
-3. Run `npm run dev` to run a dev server and watch your sass / HTML changes
-4. Have a beer
+3. Run `npm run dev` to run a development server and watch your changes
+4. Run `npm run build` to build the project (production)
