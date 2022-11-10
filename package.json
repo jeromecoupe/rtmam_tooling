@@ -1,0 +1,23 @@
+{
+  "name": "rtmam_tooling",
+  "version": "1.0.0",
+  "description": "Temporary repository for the tooling workshops at IAD in 2022.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeromecoupe/rtmam_tooling.git"
+  },
+  "keywords": [],
+  "author": "Jérôme Coupé",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeromecoupe/rtmam_tooling/issues"
+  },
+  "homepage": "https://github.com/jeromecoupe/rtmam_tooling#readme",
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}
