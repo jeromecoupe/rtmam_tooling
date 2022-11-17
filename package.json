@@ -4,14 +4,16 @@
   "description": "Temporary repository for the tooling workshops at IAD in 2022.",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm-run-all --parallel styles:dev",
-    "clean": "rimraf \"dist\"",
-    "server": "browser-sync start --server \".\" --files \"dist\" \"*.html\" --no-open",
-    "styles:dev": "npx sass src/scss/main.scss:dist/css/main.css --embed-source-map --source-map-urls=absolute",
-    "styles:prod": "npx sass src/scss/main.scss:dist/css/main.css --style=compressed --no-source-map",
+    "clean": "rimraf \"./dist\"",
+    "server": "browser-sync start --no-open --server \"./\" --files \"dist\" \"**/*.html\"",
+    "styles:dev": "npx sass --embed-source-map \"./src/scss/main.scss\" \"./dist/css/main.css\"",
+    "styles:prod": "npx sass --no-source-map --style=\"compressed\" \"./src/scss/main.scss\" \"./dist/css/main.css\"",
+    "scripts:dev": "esbuild \"./src/js/main.js\" --bundle --target=\"es6\" --sourcemap=\"inline\" --outfile=\"./dist/js/main.bundle.js\"",
+    "scripts:prod": "esbuild \"./src/js/main.js\" --bundle --minify --target=\"es6\" --outfile=\"./dist/js/main.bundle.js\"",
     "watch:styles": "onchange \"./src/scss/**/*\" -- npm run styles:dev",
-    "dev": "npm-run-all --parallel server watch:styles",
-    "build": "npm-run-all clean --parallel styles:prod"
+    "watch:scripts": "onchange \"./src/js/**/*\" -- npm run scripts:dev",
+    "dev": "npm-run-all --parallel server watch:*",
+    "build": "npm-run-all clean --parallel styles:prod scripts:prod"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "homepage": "https://github.com/jeromecoupe/rtmam_tooling#readme",
   "devDependencies": {
     "browser-sync": "^2.27.10",
+    "esbuild": "^0.15.14",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "rimraf": "^3.0.2",

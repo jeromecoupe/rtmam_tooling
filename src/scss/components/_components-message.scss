@@ -1,0 +1,24 @@
+// ==============================
+// =messages
+// ==============================
+
+.message {
+  // variables
+  --color-border: var(--color-neutral);
+
+  // properties
+  padding: 1rem;
+  border: 2px solid var(--color-border);
+
+  & > *:last-child {
+    margin-block-end: 0;
+  }
+}
+
+.message--warning {
+  --color-border: var(--color-warning);
+}
+
+.message--error {
+  --color-border: var(--color-error);
+}

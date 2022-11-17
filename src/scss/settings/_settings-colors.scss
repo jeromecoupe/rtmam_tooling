@@ -18,6 +18,12 @@ What this thing does
   --color-background: var(--color-white);
   --color-text: var(--color-gray1);
   --color-brand-main: var(--color-green1);
+
+  // ui colors
+  --color-warning: orange;
+  --color-success: green;
+  --color-error: red;
+  --color-neutral: grey;
 }
 
 @media (prefers-color-scheme: dark) {
