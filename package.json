@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf \"./dist\"",
-    "server": "browser-sync start --no-open --server \"./\" --files \"dist\" \"**/*.html\"",
-    "styles:dev": "npx sass --embed-source-map \"./src/scss/main.scss\" \"./dist/css/main.css\"",
-    "styles:prod": "npx sass --no-source-map --style=\"compressed\" \"./src/scss/main.scss\" \"./dist/css/main.css\"",
-    "scripts:dev": "esbuild \"./src/js/main.js\" --bundle --target=\"es6\" --sourcemap=\"inline\" --outfile=\"./dist/js/main.bundle.js\"",
-    "scripts:prod": "esbuild \"./src/js/main.js\" --bundle --minify --target=\"es6\" --outfile=\"./dist/js/main.bundle.js\"",
+    "server": "browser-sync start --server \"./\" --files \"**/*.html\" \"./dist/**/*\"",
+    "styles:dev": "sass --embed-source-map \"./src/scss/main.scss\" \"./dist/css/main.css\"",
+    "styles:prod": "sass --no-source-map --style=\"compressed\" \"./src/scss/main.scss\" \"./dist/css/main.css\"",
+    "scripts:dev": "esbuild --bundle --sourcemap=\"inline\" --target=\"es6\" \"./src/js/main.js\" --outfile=\"./dist/js/main.bundle.js\"",
+    "scripts:prod": "esbuild --bundle --minify --target=\"es6\" \"./src/js/main.js\" --outfile=\"./dist/js/main.bundle.js\"",
     "watch:styles": "onchange \"./src/scss/**/*\" -- npm run styles:dev",
     "watch:scripts": "onchange \"./src/js/**/*\" -- npm run scripts:dev",
-    "dev": "npm-run-all --parallel server watch:*",
-    "build": "npm-run-all clean --parallel styles:prod scripts:prod"
+    "dev": "npm-run-all -p server watch:*",
+    "build": "npm-run-all clean -p styles:prod scripts:prod"
   },
   "repository": {
     "type": "git",
